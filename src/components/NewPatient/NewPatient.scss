@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+$openSans: 'Open Sans',
+sans-serif;
+$principal_color: #00BBC0;
+
+.NewPatient {
+    background-color: rgba($color: #000000, $alpha: .4);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    text-align: center;
+    font-family: $openSans;
+    position: absolute;
+    z-index: 5;
+
+
+    &__form {
+        background: #F4F4F5;
+        //height: 20vh;
+        width: 25vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: center;
+        align-content: stretch;
+        align-items: center;
+        text-align: center;
+        padding: 2%;
+        border-radius: 10px;
+
+        &__items {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            width: 90%;
+
+            &__child {
+                text-align: left;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+                height: 25px;
+                color: #A6A6A7;
+
+                &__description {
+                    height: 100px;
+                }
+
+                &__btns {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    align-content: stretch;
+                    align-items: center;
+                    margin-top: 20px;
+
+                    button {
+                        width: 49%;
+                        text-align: center;
+                        height: 30px;
+                        color: white;
+                        opacity: .7;
+                        background: $principal_color;
+                        transition: all .3s;
+                        border: none;
+                        border-radius: 10px;
+                        font-weight: bold;
+
+                    }
+
+                    button:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    label {
+        color: $principal_color;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    & label {
+        margin-bottom: 5px;
+    }
+}

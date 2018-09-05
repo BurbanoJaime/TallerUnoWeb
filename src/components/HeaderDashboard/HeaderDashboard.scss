@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+$openSans: 'Open Sans',sans-serif;
+$principal_color: #00BBC0;
+.HeaderDashboard {
+    width: 100vw;
+    height: 10%;
+    background: $principal_color;
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.15);
+    display: block;
+    position: absolute;
+
+    z-index: 3;
+
+    &__logo {
+        padding: .5%;
+        padding-left: 3.5%;
+        img {
+            width: 15%;
+        }
+    }
+   
+}

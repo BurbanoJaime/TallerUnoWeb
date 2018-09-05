@@ -7,6 +7,11 @@ import { render } from 'react-dom';
 
 import { Root } from './containers/Root/Root';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 render(
   <Root />,
   document.getElementById('root')

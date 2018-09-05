@@ -32,7 +32,7 @@ module.exports = {
         loader: 'source-map-loader'
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         use: [
           "style-loader",
           "css-loader",

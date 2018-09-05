@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+$openSans: 'Open Sans',
+sans-serif;
+$principal_color: #00BBC0;
+.AdministrationPanel {
+    width: 20%;
+    height: 100vh - 10vh;
+    background: $principal_color;
+    display: block;
+    position: absolute;
+    z-index: -20;
+    padding-top: 10vh;
+    box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.20);
+    &__btn {
+        padding-bottom: 10px;
+        padding-left: 7%;
+        color: #F4F4F5;
+        height: 60px;
+        border-top: solid white 2px;
+        transition: all .3s;
+        h2 {
+            letter-spacing: .3px;
+            font-family: $openSans;
+            font-weight: 600;
+        }
+        &_active{
+            background: #F4F4F5;
+            box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.25);
+
+            h2 {
+                color: $principal_color;
+                
+            }
+        }
+    }
+    &__btn:nth-child(3) {
+        border-bottom: solid white 2px;
+    }
+    &__btn:hover {
+        background: #F4F4F5;
+        h2 {
+            color: $principal_color;
+            cursor: pointer;
+        }
+    }
+
+    
+}

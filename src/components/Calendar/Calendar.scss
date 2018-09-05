@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+$openSans: 'Open Sans',
+sans-serif;
+$principal_color: #00BBC0;
+
+.calendar {
+    width: 45%;
+    height: 50vh;
+    position: absolute;
+    left: 23.5vw;
+    margin-top: 7.5%;
+    background: #F4F4F5;
+
+    .rbc-calendar {
+        height: 75vh !important;
+        font-family: $openSans;
+        text-transform: uppercase;
+
+        .rbc-today{
+            background: $principal_color;
+            opacity: .2;
+            transition: all .4s;
+        }
+
+        .rbc-today:hover{
+            opacity: .5;
+        }
+    }
+}
