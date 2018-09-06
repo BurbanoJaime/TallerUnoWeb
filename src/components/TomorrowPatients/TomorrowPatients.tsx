@@ -5,55 +5,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 interface Props {
-
+    patients: any,
 }
 
 const TomorrowPatients = (props: Props) => {
     return (
         <section className="TomorrowPatients">
             <div className="TomorrowPatients__title">
-                <h3> PACIENTES DE MAÑANA </h3>
+                <h3> PACIENTES </h3>
             </div>
-            <div className="TomorrowPatients__items"> 
-                <div className="TomorrowPatients__items__user">
-                    <div className="TomorrowPatients__items__user__name">NOMBRE APELLIDO</div>
-                    <div className="TomorrowPatients__items__user__service">SERVICIO</div>
+            {props.patients.map((date: any) => {
+                return <div className="TomorrowPatients__items">
+                    <div className="TomorrowPatients__items__user">
+                        <div className="TomorrowPatients__items__user__name">{date.name}</div>
+                        <div className="TomorrowPatients__items__user__service">{date.number}</div>
+                    </div>
+                    <div className="TomorrowPatients__items__hour">{date.birthdate} </div>
                 </div>
-                <div className="TomorrowPatients__items__hour"> 6 am </div>
-            </div>
-
-            <div className="TomorrowPatients__items"> 
-                <div className="TomorrowPatients__items__user">
-                    <div className="TomorrowPatients__items__user__name">NOMBRE APELLIDO</div>
-                    <div className="TomorrowPatients__items__user__service">SERVICIO</div>
-                </div>
-                <div className="TomorrowPatients__items__hour"> 6 am </div>
-            </div>
-
-            <div className="TomorrowPatients__items"> 
-                <div className="TomorrowPatients__items__user">
-                    <div className="TomorrowPatients__items__user__name">NOMBRE APELLIDO</div>
-                    <div className="TomorrowPatients__items__user__service">SERVICIO</div>
-                </div>
-                <div className="TomorrowPatients__items__hour"> 6 am </div>
-            </div>
-
-            <div className="TomorrowPatients__items"> 
-                <div className="TomorrowPatientser">
-                    <div className="TomorrowPatients__items__user__name">NOMBRE APELLIDO</div>
-                    <div className="TomorrowPatients__items__user__service">SERVICIO</div>
-                </div>
-                <div className="TomorrowPatients__items__hour"> 6 am </div>
-            </div>
-
-             <div className="TomorrowPatients__items"> 
-                <div className="TomorrowPatientser">
-                    <div className="TomorrowPatients__items__user__name">NOMBRE APELLIDO</div>
-                    <div className="TomorrowPatients__items__user__service">SERVICIO</div>
-                </div>
-                <div className="TomorrowPatients__items__hour"> 6 am </div>
-            </div>
-
+            })}
         </section>
     )
 };

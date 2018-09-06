@@ -36,6 +36,7 @@ const NewDate = (props: Props) => {
                     <select className="NewDate__form__items__child" name="users" id="users" onChange={props.handleChangePatient}>
                         {props.patientsNew.map((pat: any) => {
                             return <option value={pat.name} selected> {pat.name} </option>
+                            {console.log("Nombre: "+ pat.name)}
                         })}
                     </select>
                     <label className="NewDate__form__items__child">Fecha</label>

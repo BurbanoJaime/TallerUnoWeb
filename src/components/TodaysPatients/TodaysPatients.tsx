@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 interface Props {
-    appointment: any;
+    appointmentToday: any;
 }
 
 
@@ -13,15 +13,15 @@ const TodaysPatients = (props: Props) => {
     return (
         <section className="TodaysPatients">
             <div className="TodaysPatients__title">
-                <h3> PACIENTES DE HOY </h3>
+                <h3> CITAS DE HOY </h3>
             </div>
-            {props.appointment.map((juandis: any) => {
+            {props.appointmentToday.map((date: any) => {
                 return <div className="TodaysPatients__items">
                     <div className="TodaysPatients__items__user">
-                        <div className="TodaysPatients__items__user__name">{juandis.patient}</div>
-                        <div className="TodaysPatients__items__user__service">{juandis.type}</div>
+                        <div className="TodaysPatients__items__user__name">{date.patient}</div>
+                        <div className="TodaysPatients__items__user__service">{date.type}</div>
                     </div>
-                    <div className="TodaysPatients__items__hour">{juandis.hour}
+                    <div className="TodaysPatients__items__hour">{date.hour}
                     </div>
                 </div>
             })}

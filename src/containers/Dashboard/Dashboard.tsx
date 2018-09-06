@@ -10,7 +10,7 @@ import TomorrowPatients from '../../components/TomorrowPatients/TomorrowPatients
 import NewDate from '../../components/NewDate/NewDate';
 import NewPatient from '../../components/NewPatient/NewPatient';
 import { isDate } from 'util';
-import { parseTwoDigitYear } from '../../../node_modules/moment';
+import { parseTwoDigitYear, duration } from '../../../node_modules/moment';
 
 interface Props {
 }
@@ -18,8 +18,6 @@ interface Props {
 interface State {
     showDateAdm: boolean,
     showPatientAdm: boolean,
-
-    today: Date;
 
     /* Data of "New Patient" */
     name: string;
@@ -34,7 +32,7 @@ interface State {
     title: string;
     description: string;
 
-    appointment: any;
+    appointmentToday: any;
     patients: any;
 
 }
@@ -43,9 +41,8 @@ export class Dashboard extends React.Component<Props, State>{
     constructor(props: Props) {
         super(props);
         this.state = {
-            appointment: [],
+            appointmentToday: [],
             patients: [],
-            today: null,
 
             /* Data of "New Date" */
             showDateAdm: false,
@@ -63,12 +60,6 @@ export class Dashboard extends React.Component<Props, State>{
             number: 0,
         }
 
-    }
-
-    onChangeDate = (date: Date) => {
-        this.setState({
-            today: new Date(),
-        });
     }
 
     /* SHOW BY GIVING CLICK ON THE CONTROL PANEL */
@@ -167,8 +158,7 @@ export class Dashboard extends React.Component<Props, State>{
     createDate = (event: any) => {
         event.preventDefault();
 
-       
-        this.state.appointment.push({
+        this.state.appointmentToday.push({
             patient: this.state.patient,
             date: this.state.date,
             hour: this.state.hour,
@@ -177,7 +167,9 @@ export class Dashboard extends React.Component<Props, State>{
             description: this.state.description
         })
 
-        this.setState({
+        console.log(this.state.appointmentToday.patient);
+        
+            this.setState({
             showDateAdm: false
         });
     }
@@ -197,10 +189,11 @@ export class Dashboard extends React.Component<Props, State>{
                 />
                 <Calendar />
                 <TodayPatients
-                    appointment={this.state.appointment}
+                    appointmentToday={this.state.appointmentToday}
                 />
-                <TomorrowPatients />
-
+                <TomorrowPatients
+                    patients={this.state.patients}
+                />
                 {
                     this.state.showDateAdm &&
                     <NewDate
