@@ -30,7 +30,7 @@ export class Root extends React.Component<Props, State>{
     constructor(props: Props) {
         super(props);
         this.state = {
-            statusScreen: 2,
+            statusScreen: 0,
             name: '',
             email: '',
             password: '',
@@ -130,7 +130,7 @@ export class Root extends React.Component<Props, State>{
         console.log(this.state.statusScreen);
         if (this.state.email === email && this.state.password === password) {
             this.setState({
-                statusScreen: 0
+                statusScreen: 2
             });
             return;
         }
