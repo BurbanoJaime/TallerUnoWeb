@@ -6,36 +6,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface Props {
     appointment: any;
-    patients: any;
 }
 
 
 const TodaysPatients = (props: Props) => {
-    console.log("today patients " + props.appointment);
     return (
         <section className="TodaysPatients">
             <div className="TodaysPatients__title">
                 <h3> PACIENTES DE HOY </h3>
             </div>
-            <div className="TodaysPatients__items">
-                <div className="TodaysPatients__items__user">
-                    <div className="TodaysPatients__items__user__name">
-                        {props.patients.map((date: any) => {
-                            date.name
-                        })}
+            {props.appointment.map((juandis: any) => {
+                return <div className="TodaysPatients__items">
+                    <div className="TodaysPatients__items__user">
+                        <div className="TodaysPatients__items__user__name">{juandis.patient}</div>
+                        <div className="TodaysPatients__items__user__service">{juandis.type}</div>
                     </div>
-                    <div className="TodaysPatients__items__user__service">
-                        {props.appointment.map((date: any) => {
-                            date.type
-                        })}
+                    <div className="TodaysPatients__items__hour">{juandis.hour}
                     </div>
                 </div>
-                <div className="TodaysPatients__items__hour">
-                    {props.appointment.map((date: any) => {
-                        date.hour
-                    })}
-                </div>
-            </div>
+            })}
+
         </section>
     )
 };

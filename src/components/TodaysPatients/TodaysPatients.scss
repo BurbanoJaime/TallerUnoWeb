@@ -26,6 +26,7 @@ $principal_color: #00BBC0;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        text-transform: uppercase;
         &__user {
             display: inline-block;
             &__name {

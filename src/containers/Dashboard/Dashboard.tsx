@@ -9,6 +9,8 @@ import TomorrowPatients from '../../components/TomorrowPatients/TomorrowPatients
 
 import NewDate from '../../components/NewDate/NewDate';
 import NewPatient from '../../components/NewPatient/NewPatient';
+import { isDate } from 'util';
+import { parseTwoDigitYear } from '../../../node_modules/moment';
 
 interface Props {
 }
@@ -16,6 +18,8 @@ interface Props {
 interface State {
     showDateAdm: boolean,
     showPatientAdm: boolean,
+
+    today: Date;
 
     /* Data of "New Patient" */
     name: string;
@@ -35,14 +39,13 @@ interface State {
 
 }
 
-
 export class Dashboard extends React.Component<Props, State>{
     constructor(props: Props) {
         super(props);
         this.state = {
-
-            appointment: [{}],
-            patients: [{}],
+            appointment: [],
+            patients: [],
+            today: null,
 
             /* Data of "New Date" */
             showDateAdm: false,
@@ -57,9 +60,15 @@ export class Dashboard extends React.Component<Props, State>{
             showPatientAdm: false,
             name: '',
             birthdate: '',
-            number: 0
+            number: 0,
         }
 
+    }
+
+    onChangeDate = (date: Date) => {
+        this.setState({
+            today: new Date(),
+        });
     }
 
     /* SHOW BY GIVING CLICK ON THE CONTROL PANEL */
@@ -77,7 +86,7 @@ export class Dashboard extends React.Component<Props, State>{
         this.setState({
             showPatientAdm: false
         });
-        console.log(this.state.showPatientAdm);
+        //console.log(this.state.showPatientAdm);
     }
 
     handleChangeName = (event: any) => {
@@ -95,12 +104,13 @@ export class Dashboard extends React.Component<Props, State>{
     createPatient = (event: any) => {
         event.preventDefault();
 
-        this.state.patients.push= {
+        this.state.patients.push({
             name: this.state.name,
             birthdate: this.state.birthdate,
             number: this.state.number
-        }
-        console.log(this.state.patients);
+        })
+
+        //console.log(this.state.patients);
 
         this.setState({
             showPatientAdm: false
@@ -115,7 +125,7 @@ export class Dashboard extends React.Component<Props, State>{
             showDateAdm: true
         });
 
-        console.log(this.state.showPatientAdm);
+        //console.log(this.state.showPatientAdm);
 
 
     }
@@ -126,7 +136,7 @@ export class Dashboard extends React.Component<Props, State>{
             showDateAdm: false
         });
 
-        console.log(this.state.showPatientAdm);
+        //console.log(this.state.showPatientAdm);
 
     }
 
@@ -157,15 +167,15 @@ export class Dashboard extends React.Component<Props, State>{
     createDate = (event: any) => {
         event.preventDefault();
 
-        this.state.appointment.push = {
+       
+        this.state.appointment.push({
             patient: this.state.patient,
             date: this.state.date,
             hour: this.state.hour,
             type: this.state.type,
             title: this.state.title,
             description: this.state.description
-        }
-        console.log(this.state.appointment);
+        })
 
         this.setState({
             showDateAdm: false
@@ -188,8 +198,6 @@ export class Dashboard extends React.Component<Props, State>{
                 <Calendar />
                 <TodayPatients
                     appointment={this.state.appointment}
-                    patients={this.state.patients}
-
                 />
                 <TomorrowPatients />
 
@@ -202,6 +210,7 @@ export class Dashboard extends React.Component<Props, State>{
                         type={this.state.type}
                         title={this.state.title}
                         description={this.state.description}
+                        patientsNew={this.state.patients}
 
                         createDate={this.createDate}
                         deleteDate={this.deleteDate}
@@ -230,8 +239,6 @@ export class Dashboard extends React.Component<Props, State>{
 
                     />
                 }
-
-
             </section>
         )
     }
